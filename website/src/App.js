@@ -5,6 +5,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import NavBar from './components/NavBar';
 import Main from './components/Main';
 import About from './components/About';
+import Projects from './components/Projects';
+import './App.css';
 
 class App extends Component {
   render() {
@@ -16,6 +18,9 @@ class App extends Component {
         <NavBar />
         
         <About />
+        
+        <Projects />
+
   </MuiThemeProvider>
 );
       }

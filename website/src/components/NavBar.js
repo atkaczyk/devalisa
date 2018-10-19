@@ -22,8 +22,20 @@ const styles = {
         marginRight: 20,
     },
     barColor: {
-        backgroundColor: 'transparent',
-        color: 'pink'
+        background: '#d9a7c7',  /* fallback for old browsers */
+        background: '-webkit-linear-gradient(to right, #fffcdc, #d9a7c7)',  /* Chrome 10-25, Safari 5.1-6 */
+        background: 'linear-gradient(to right, #fffcdc, #d9a7c7)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: 'grey',
+    },
+    navButton: {
+        marginRight:'15px',
+        backgroundColor: 'white',
+        borderRadius:'10px',
+        fontStyle:'none',
+    },
+    navLink: {
+        textDecoration: 'none',
+        color:'grey',
     }
 };
 
@@ -31,14 +43,14 @@ function NavBar(props) {
     const { classes } = props;
     return (
         <div className={classes.root}>
-            <AppBar className={classes.barColor} position="static">
+            <AppBar className={classes.barColor} position="sticky">
                 <Toolbar>
                     <Typography variant="h6" color="inherit" className={classes.grow}>
                         Patience, Practice, Perseverance
           </Typography>
-          <Button color="inherit"><Link to="#about">About</Link></Button>
-          <Button color="inherit"><Link to="#projects">Projects</Link></Button>
-          <Button color="inherit"><Link to="#resume">Resume</Link></Button>
+          <Button className={classes.navButton} color="inherit"><Link className={classes.navLink} to="#about">About</Link></Button>
+          <Button className={classes.navButton} color="inherit"><Link className={classes.navLink} to="#projects">Projects</Link></Button>
+          <Button className={classes.navButton} color="inherit"><Link className={classes.navLink} to="#resume">Resume</Link></Button>
 
                 </Toolbar>
             </AppBar>
