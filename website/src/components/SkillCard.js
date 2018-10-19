@@ -10,9 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import LinearProgress from '@material-ui/core/LinearProgress'
 import Grid from '@material-ui/core/Grid';
 
-import Collapse from '@material-ui/core/Collapse';
-import Switch from '@material-ui/core/Switch';
-
 const styles = {
   card: {
     minWidth: 275,
@@ -31,76 +28,46 @@ const styles = {
     height: '15px',
     marginTop: '10px',
     marginBottom: '10px'
-  },
-  root: {
-    height: 180,
-  },
-  container: {
-    display: 'flex',
-  },
-  paper: {
-    // margin: theme.spacing.unit,
-  },
-  svg: {
-    width: 100,
-    height: 100,
-  },
-  polygon: {
-    // fill: theme.palette.common.white,
-    // stroke: theme.palette.divider,
-    strokeWidth: 1,
-  },
-
+  }
 };
 
 // REPLACE PROGRESS BAR WITH SIMPLE SLIDER https://material-ui.com/lab/slider/
 
-class SkillCard extends React.Component {
-  state = {
-    checked: false,
-  };
+function Skills(props) {
+  const { classes } = props;
 
-  handleChange = () => {
-    this.setState(state => ({ checked: !state.checked }));
-  };
+  return (
+    <Card className={classes.card}>
+      <CardContent>
+        
+      <Typography align='left' gutterBottom variant="h5" component="h2">
+            {props.card.title}
+          </Typography>
 
-  render() {
-    const { classes } = this.props;
-    const { checked } = this.state;
+          {props.card.language.map((language,index) => (
+        <Grid container spacing={16} justify="center">
 
-    return (
-      <div className={classes.container}>
-        <Typography checked={checked} onClick={this.handleChange} aria-label="Collapse" gutterBottom variant="h5" component="h2">
-          {this.props.card.title}
-        </Typography>
-        <Collapse in={checked}>
-          <Card className={classes.card}>
-            <CardContent>
-              {this.props.card.language.map((language, index) => (
-                <Grid container spacing={16} justify="center">
-                  <Grid item sm={12} md={6} lg={6}>
-                    <Typography variant="h6" align="center" color="textSecondary" paragraph>
-                      {language}</Typography>
-                  </Grid>
-                  <Grid item sm={12} md={6} lg={6}>
-                    <LinearProgress className={classes.skillProgress} variant="determinate" value={this.props.card.proficiency[index]} />
-                  </Grid>
-                </Grid>
-              ))}
-            </CardContent>
-          </Card>
-        </Collapse>
-      </div>
+            <Grid item sm={12} md={6} lg={6}>
+              <LinearProgress className={classes.skillProgress} variant="determinate" value={props.card.proficiency[index]} />
+            </Grid>
+            <Grid item sm={12} md={6} lg={6}>
+              <Typography variant="h6" align="left" color="textSecondary" paragraph>
+                {language}</Typography>
+            </Grid>
+        </Grid>
+          ))}
 
-    );
-  }
+
+      </CardContent>
+      {/* <CardActions>
+        <Button onClick={checked = () => true ? false : true}size="small">Learn More</Button>
+      </CardActions> */}
+    </Card>
+  );
 }
 
-// <CardActions>
-// <Button size="small">Learn More</Button>
-// </CardActions>
-SkillCard.propTypes = {
+Skills.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SkillCard);
+export default withStyles(styles)(Skills);

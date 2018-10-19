@@ -50,13 +50,13 @@ const styles = theme => ({
 });
 
 const cards = [{
-    title:"Backend",
-    language: ['Java','C','Python'],
-    proficiency: ['75','45','50']
-},{
     title:"Front End",
     language: ['JavaScript','HTML5','CSS/Sass/Less', 'React', 'Redux', 'Scheme'],
     proficiency: ['75','90','90','50', '25', '50']
+},{
+    title:"Backend",
+    language: ['Java','C','Python'],
+    proficiency: ['75','45','50']
 },{
     title:"Theory Based",
     language: ['Git','Agile','Eclipse', 'Functional Programming'],
