@@ -50,15 +50,20 @@ function Skills(props) {
   return (
     <Card className={classes.card}>
       <CardContent>
-      <Grid container spacing={16} justify="center">
-          <Grid item sm={12} md={6} lg={8}>
-            <Typography variant="h6" align="center" color="textSecondary" paragraph>
-              Java</Typography>
-          </Grid>
-          <Grid item sm={12} md={6} lg={4}>
-            <LinearProgress className={classes.skillProgress} variant="determinate" value={50} />
-          </Grid>
-          </Grid>
+
+          {props.card.language.map((language,index) => (
+        <Grid container spacing={16} justify="center">
+            <Grid item sm={12} md={6} lg={6}>
+              <Typography variant="h6" align="center" color="textSecondary" paragraph>
+                {language}</Typography>
+            </Grid>
+            <Grid item sm={12} md={6} lg={6}>
+              <LinearProgress className={classes.skillProgress} variant="determinate" value={props.card.proficiency[index]} />
+            </Grid>
+        </Grid>
+          ))}
+
+
       </CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>
