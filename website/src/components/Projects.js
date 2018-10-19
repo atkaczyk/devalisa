@@ -16,10 +16,9 @@ const styles = theme => ({
     heroContent: {
         maxWidth: 600,
         margin: '0 auto',
+        textAlign: 'left',
+        borderBottom: '4px, solid, black', // why isnt this working tho
         padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
-    },
-    heroButtons: {
-        marginTop: theme.spacing.unit * 4,
     },
     layout: {
         width: 'auto',
@@ -45,6 +44,7 @@ const styles = theme => ({
     },
     cardContent: {
         flexGrow: 1,
+        // backgroundColor:'red'
     }
 });
 
@@ -76,33 +76,25 @@ const cards = [{
 
 function Projects(props) {
     const { classes } = props;
-
+    // Consider adding badges to each project card to show tech/tools used
     return (
         <React.Fragment>
             <CssBaseline />
             {/* Hero unit */}
-            <div >
+            <div>
                 <div className={classes.heroContent}>
-                    <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                        Projects
-            </Typography>
-                    <Typography variant="h6" align="center" color="textSecondary" paragraph>
-                        Java | Python | React | C | Selenium
-            </Typography>
-                    <div className={classes.heroButtons}>
-                        <Grid container spacing={16} justify="center">
-                            <Grid item>
-                                <Button variant="contained" color="primary">
-                                    Personal Projects
-                  </Button>
-                            </Grid>
-                            <Grid item>
-                                <Button variant="outlined" color="primary">
-                                    School and Work Projects
-                  </Button>
-                            </Grid>
-                        </Grid>
-                    </div>
+                    {/* <Grid container spacing={16} justify="space-between"> */}
+                        {/* <Grid item sm={12} md={6} lg={8}> */}
+                            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+                                Projects
+                            </Typography>
+                        {/* </Grid> */}
+                        {/* <Grid item sm={12} md={6} lg={4}> */}
+                            <Typography variant="h6" align="center" color="textSecondary" paragraph>
+                                Java | Python | React | C | Selenium | Hide All Projects
+                            </Typography>
+                        {/* </Grid> */}
+                    {/* </Grid> */}
                 </div>
             </div>
             <div className={classNames(classes.layout, classes.cardGrid)}>
