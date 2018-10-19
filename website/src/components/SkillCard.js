@@ -14,11 +14,6 @@ const styles = {
   card: {
     minWidth: 275,
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
   title: {
     fontSize: 14,
   },
@@ -33,23 +28,21 @@ const styles = {
     height: '15px',
     marginTop: '10px',
     marginBottom: '10px'
-  },
-  heroContent: {
-    maxWidth: 600,
-    margin: '0 auto',
-    textAlign: 'left',
-    borderBottom: '4px, solid, black', // why isnt this working tho
-  },
+  }
 };
 
+// REPLACE PROGRESS BAR WITH SIMPLE SLIDER https://material-ui.com/lab/slider/
 
 function Skills(props) {
   const { classes } = props;
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <Card className={classes.card}>
       <CardContent>
+        
+      <Typography gutterBottom variant="h5" component="h2">
+            {props.card.title}
+          </Typography>
 
           {props.card.language.map((language,index) => (
         <Grid container spacing={16} justify="center">

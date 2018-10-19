@@ -84,16 +84,16 @@ function Projects(props) {
             <div>
                 <div className={classes.heroContent}>
                     {/* <Grid container spacing={16} justify="space-between"> */}
-                        {/* <Grid item sm={12} md={6} lg={8}> */}
-                            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                                Projects
+                    {/* <Grid item sm={12} md={6} lg={8}> */}
+                    <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+                        Projects
                             </Typography>
-                        {/* </Grid> */}
-                        {/* <Grid item sm={12} md={6} lg={4}> */}
-                            <Typography variant="h6" align="center" color="textSecondary" paragraph>
-                                Java | Python | React | C | Selenium | Hide All Projects
+                    {/* </Grid> */}
+                    {/* <Grid item sm={12} md={6} lg={4}> */}
+                    <Typography variant="h6" align="center" color="textSecondary" paragraph>
+                        Java | Python | React | C | Selenium | Hide All Projects
                             </Typography>
-                        {/* </Grid> */}
+                    {/* </Grid> */}
                     {/* </Grid> */}
                 </div>
             </div>

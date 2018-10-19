@@ -50,28 +50,39 @@ const styles = theme => ({
 });
 
 const cards = [{
-    language: ['Java','Java','Java','Java'],
-    proficiency: ['75','75','75','75']
+    title:"Backend",
+    language: ['Java','C','Python'],
+    proficiency: ['75','45','50']
 },{
-    language: ['JavaScript','JavaScript','JavaScript'],
-    proficiency: ['75','75','75','75']
+    title:"Front End",
+    language: ['JavaScript','HTML5','CSS/Sass/Less', 'React', 'Redux', 'Scheme'],
+    proficiency: ['75','90','90','50', '25', '50']
 },{
-    language: ['JavaBeans','JavaBeans','JavaBeans'],
-    proficiency: ['75','75','75']
+    title:"Theory Based",
+    language: ['Git','Agile','Eclipse', 'Functional Programming'],
+    proficiency: ['75','90','75', '65']
 },{
-    language: ['JavaWee','see','this'],
-    proficiency: ['15','15','15']
+    title:"Other Knowledge",
+    language: ['SQL','API Design','Human Computer Interaction'],
+    proficiency: ['65','45','85']
 }];
 
 
 
-function Projects(props) {
+function Skills(props) {
     const { classes } = props;
     // Consider adding badges to each project card to show tech/tools used
     return (
         <React.Fragment>
             <CssBaseline />
-            {/* Hero unit */}
+            <div>
+                <div className={classes.heroContent}>
+                    <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+                        Skills</Typography>
+                    <Typography variant="h6" align="center" color="textSecondary" paragraph>
+                      Self assessment.</Typography>
+                </div>
+            </div>
             <div className={classNames(classes.layout, classes.cardGrid)}>
                 {/* End hero unit */}
                 <Grid container spacing={40}>
@@ -86,8 +97,8 @@ function Projects(props) {
     );
 }
 
-Projects.propTypes = {
+Skills.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Projects);
+export default withStyles(styles)(Skills);

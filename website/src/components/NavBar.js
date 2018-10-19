@@ -49,6 +49,7 @@ function NavBar(props) {
                         Patience, Practice, Perseverance
           </Typography>
           <Button className={classes.navButton} color="inherit"><Link className={classes.navLink} to="#about">About</Link></Button>
+          <Button className={classes.navButton} color="inherit"><Link className={classes.navLink} to="#projects">Skills</Link></Button>
           <Button className={classes.navButton} color="inherit"><Link className={classes.navLink} to="#projects">Projects</Link></Button>
           <Button className={classes.navButton} color="inherit"><Link className={classes.navLink} to="#resume">Resume</Link></Button>
 

@@ -18,11 +18,11 @@ class App extends Component {
 
         <NavBar />
         
-        <About />
+        <About id="#about"/>
         
-        <Skills />
+        <Skills id="#skills"/>
 
-        <Projects />
+        <Projects id="#projects"/>
 
 
   </MuiThemeProvider>
