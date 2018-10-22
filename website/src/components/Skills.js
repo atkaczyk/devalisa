@@ -13,10 +13,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Image from '../img/landing-page.jpg'; // Import using relative path
 import SkillCard from './SkillCard';
 import Paper from '@material-ui/core/Paper';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 
 const styles = theme => ({
     heroContent: {
@@ -33,9 +30,10 @@ const styles = theme => ({
             marginLeft: 'auto',
             marginRight: 'auto',
         },
+        marginBottom: theme.spacing.unit * 3,
     },
     cardGrid: {
-        // backgroundColor: 'red',
+       //s backgroundColor: 'red',
     },
     card: {
         height: '100%',
@@ -53,24 +51,27 @@ const styles = theme => ({
     paper: {
       margin: theme.spacing.unit,
       padding: theme.spacing.unit * 2,
+    },
+    border: {
+        // borderLeft: '2px solid black'
     }
 });
 
 const cards = [{
     title:"Front End",
-    language: ['JavaScript','HTML5','CSS/Sass/Less', 'React', 'Redux', 'Scheme'],
-    proficiency: ['75','90','90','50', '25', '50']
+    language: ['JavaScript','HTML5','CSS/Sass', 'React', 'Redux'],
+    proficiency: ['75','90','90','50', '25']
 },{
     title:"Backend",
-    language: ['Java','C','Python'],
-    proficiency: ['75','45','50']
+    language: ['Java','C','Python', 'Scheme'],
+    proficiency: ['75','45','50', '50']
 },{
     title:"Theory Based",
-    language: ['Git','Agile','Eclipse', 'Functional Programming'],
+    language: ['Git','Agile','Eclipse', 'FP'],
     proficiency: ['75','90','75', '65']
 },{
     title:"Other Knowledge",
-    language: ['SQL','API Design','Human Computer Interaction'],
+    language: ['SQL','API Design','HCI'],
     proficiency: ['65','45','85']
 }];
 
@@ -82,29 +83,20 @@ function Skills(props) {
     return (
         <Paper className={classes.paper}>
         <React.Fragment>
-            <CssBaseline />
             <div>
                 <div className={classes.heroContent}>
                     <Typography component="h3" variant="h3" align="left" color="textPrimary" gutterBottom>
                         Skills</Typography>
-                    <Typography variant="h6" align="left" color="textSecondary" paragraph>
-                      Front end | Backend | Tools | Theory </Typography>
+                    {/* <Typography variant="h6" align="left" color="textSecondary" paragraph> */}
+                      {/* Front end | Backend | Tools | Theory </Typography> */}
                 </div>
             </div>
             <div className={classNames(classes.layout, classes.cardGrid)}>
                 {/* End hero unit */}
-                <Grid container spacing={40}>
+                <Grid container spacing={40} >
                     {cards.map(card => (
-                        <Grid item key={card} sm={12} md={6} lg={4}>
-                              <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>{card.title}</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          
-        <SkillCard card={card}/>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
+                        <Grid  className={classes.border} item key={card} sm={12} md={6} lg={3}>
+                            <SkillCard card={card}/>
                         </Grid>
                     ))}
                 </Grid>

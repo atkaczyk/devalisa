@@ -13,6 +13,7 @@ import Grid from '@material-ui/core/Grid';
 const styles = {
   card: {
     minWidth: 275,
+    height: '100%',
   },
   title: {
     fontSize: 14,
@@ -41,6 +42,10 @@ function Skills(props) {
   return (
     <Card className={classes.card}>
       <CardContent>
+
+      <Typography align='left' gutterBottom variant="h5" component="h2">
+            {props.card.title}
+          </Typography>
           {props.card.language.map((language,index) => (
         <Grid container spacing={16} justify="center">
 
