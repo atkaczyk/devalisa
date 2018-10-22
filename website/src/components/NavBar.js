@@ -46,7 +46,7 @@ function NavBar(props) {
             <AppBar className={classes.barColor} position="sticky">
                 <Toolbar>
                     <Typography variant="h6" color="inherit" className={classes.grow}>
-                        Patience, Practice, Perseverance
+                    <Link className={classes.navLink} to="#">Patience, Practice, Perseverance</Link>
           </Typography>
           <Button className={classes.navButton} color="inherit"><Link className={classes.navLink} to="#about">About</Link></Button>
           <Button className={classes.navButton} color="inherit"><Link className={classes.navLink} to="#projects">Skills</Link></Button>
