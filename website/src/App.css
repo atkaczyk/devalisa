@@ -23,16 +23,16 @@
 
 }
 
-.about-icon-wrapper .fa{
+.landing-page-icon-wrapper .fa{
   color: pink;
   margin:0 15px;
 }
-.about-icon-wrapper .fa:hover{
+.landing-page-icon-wrapper .fa:hover{
   color: darkviolet;
   margin:5px 15px;
 }
 
-.about-icon-wrapper{
+.landing-page-icon-wrapper{
   text-align: center;
   padding-top:7%;
 }

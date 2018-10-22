@@ -12,14 +12,17 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Image from '../img/landing-page.jpg'; // Import using relative path
 import SkillCard from './SkillCard';
+import Paper from '@material-ui/core/Paper';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const styles = theme => ({
     heroContent: {
-        maxWidth: 600,
         margin: '0 auto',
-        textAlign: 'left',
         borderBottom: '4px, solid, black', // why isnt this working tho
-        padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
+        padding: `${theme.spacing.unit * 6}px 0 ${theme.spacing.unit * 3}px ${theme.spacing.unit * 13}px`,
     },
     layout: {
         width: 'auto',
@@ -46,6 +49,10 @@ const styles = theme => ({
     cardContent: {
         flexGrow: 1,
         // backgroundColor:'red'
+    },
+    paper: {
+      margin: theme.spacing.unit,
+      padding: theme.spacing.unit * 2,
     }
 });
 
@@ -73,14 +80,15 @@ function Skills(props) {
     const { classes } = props;
     // Consider adding badges to each project card to show tech/tools used
     return (
+        <Paper className={classes.paper}>
         <React.Fragment>
             <CssBaseline />
             <div>
                 <div className={classes.heroContent}>
-                    <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+                    <Typography component="h3" variant="h3" align="left" color="textPrimary" gutterBottom>
                         Skills</Typography>
-                    <Typography variant="h6" align="center" color="textSecondary" paragraph>
-                      Self assessment.</Typography>
+                    <Typography variant="h6" align="left" color="textSecondary" paragraph>
+                      Front end | Backend | Tools | Theory </Typography>
                 </div>
             </div>
             <div className={classNames(classes.layout, classes.cardGrid)}>
@@ -88,12 +96,21 @@ function Skills(props) {
                 <Grid container spacing={40}>
                     {cards.map(card => (
                         <Grid item key={card} sm={12} md={6} lg={4}>
-                            <SkillCard card={card}/>
+                              <ExpansionPanel>
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography className={classes.heading}>{card.title}</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          
+        <SkillCard card={card}/>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
                         </Grid>
                     ))}
                 </Grid>
             </div>
         </React.Fragment>
+        </Paper>
     );
 }
 

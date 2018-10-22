@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Switch, Route } from 'react-router-dom';
-import About from './About'
+import LandingPage from './LandingPage'
 import Skills from './Skills'
 import Projects from './Projects'
 // import Resume from './resume'
@@ -9,7 +9,7 @@ import Projects from './Projects'
 const Main = () => {
     return (
     <Switch>
-        <Route exact path="#aboutme" component={About} />
+        <Route exact path="#" component={LandingPage} />
         <Route exact path="#skills" component={Skills} />
         <Route exact path="#projects" component={Projects} />
         {/* <Route exact path="#resume" component={Resume} /> */}
