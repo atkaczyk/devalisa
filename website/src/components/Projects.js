@@ -9,11 +9,12 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import projectHonours from '../img/landing-page.jpg'; // Import using relative path
+import projectHonours from '../img/moqup1.JPG'; // Import using relative path
 import projectSudoku from '../img/sudoku_solver_1.JPG'; // Import using relative path
 import projectKernel from '../img/linux_1.JPG'; // Import using relative path
 import projectCrimHub from '../img/CrimHub.jpg'; // Import using relative path
 import projectIvanhoe from '../img/Ivanhoe_1.JPG'; // Import using relative path
+import ProjectCard from './ProjectCard';
 
 const styles = theme => ({
     heroContent: {
@@ -31,27 +32,11 @@ const styles = theme => ({
             marginRight: 'auto',
         },
     },
-    cardGrid: {
-        // backgroundColor: 'red',
-    },
-    card: {
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        borderRadius: '10%'
-    },
-    cardMedia: {
-        paddingTop: '56.25%', // 16:9
-    },
-    cardContent: {
-        flexGrow: 1,
-        // backgroundColor:'red'
-    }
 });
 
 const cards = [{
     image: `${projectHonours}`,
-    title: 'Building Mental Models of Usable Security',
+    title: 'Mental Models of Security',
     description: 'Honours Project: Building Mental Models of Usable Security. Does everyone know what "this webpage isn`t safe" really means? I designed an interactive interface and performed a user study to evaluate its efficacy in teaching browser security and related computer security concepts. ',
 }, {
     image: `${projectSudoku}`,
@@ -88,36 +73,13 @@ function Projects(props) {
                     Java | Python | React | C | Selenium | Hide All Projects
                             </Typography>
             </div>
-            <div className={classNames(classes.layout, classes.cardGrid)}>
+            <div className={classes.layout}>
                 <Grid container spacing={40}>
                     {cards.map(card => (
-                        <Grid item key={card} sm={12} md={6} lg={4}>
-                            <Card className={classes.card}>
-                                <CardContent className={classes.cardContent}>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        {card.title}
-                                    </Typography>
-                                </CardContent>
-                                <CardMedia
-                                    className={classes.cardMedia}
-                                    image={card.image}
-                                    title={card.title}
-                                />
-                                <CardContent className={classes.cardContent}>
-                                    <Typography>
-                                        {card.description}
-                                    </Typography>
-                                </CardContent>
-                                <CardActions>
-                                    <Button size="small" color="primary">
-                                        Tools
-                    </Button>
-                                    <Button size="small" color="primary">
-                                        See online
-                    </Button>
-                                </CardActions>
-                            </Card>
-                        </Grid>
+                        <Grid item key={props.card} sm={12} md={6} lg={4}>
+
+                       <ProjectCard card={card}/> 
+                       </Grid>
                     ))}
                 </Grid>
             </div>

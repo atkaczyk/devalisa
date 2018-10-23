@@ -18,7 +18,12 @@ const styles = theme => ({
     height: '100%',
   },
   title: {
-    fontSize: 14,
+    backgroundColor: 'pink',
+    borderRadius: '5px',
+    marginRight:'10px',
+    paddingLeft:'10px',
+    lineHeight: '3rem',
+    height:'3rem',
   },
   pos: {
     marginBottom: 12,
@@ -57,10 +62,10 @@ class SkillCard extends React.Component {
     return (
       <div className={classes.root}>
         <div className={classes.container}>
-          <Collapse in={checked} collapsedHeight="40px">
+          <Collapse in={checked} collapsedHeight="5rem">
             <Card className={classes.card}>
               <CardContent>
-                <Typography  onClick={this.handleChange} align='left' gutterBottom variant="h5" component="h2">
+                <Typography className={classes.title} onClick={this.handleChange} align='left' gutterBottom variant="h5" component="h2">
                   {this.props.card.title}
                 </Typography>
                 {this.props.card.language.map((language, index) => (

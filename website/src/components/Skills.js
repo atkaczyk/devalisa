@@ -19,7 +19,7 @@ const styles = theme => ({
     heroContent: {
         margin: '0 auto',
         borderBottom: '4px, solid, black', // why isnt this working tho
-        padding: `${theme.spacing.unit * 2}px 0 ${theme.spacing.unit * 2}px ${theme.spacing.unit * 7}px`,
+        padding: `${theme.spacing.unit * 2}px 0 ${theme.spacing.unit * 2}px ${theme.spacing.unit * 5}px`,
     },
     layout: {
         width: 'auto',
@@ -38,7 +38,6 @@ const styles = theme => ({
         flexDirection: 'column',
         borderRadius: '10%'
     },
-
     paper: {
         margin: `0 ${theme.spacing.unit * 4}px`,
         padding: theme.spacing.unit * 2,

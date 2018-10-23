@@ -9,12 +9,13 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import projectHonours from '../img/lab.jpg'; // Import using relative path
 
 
 const styles = theme => ({
     paper: {
-        width: '50%',
-        margin: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 4}px`,
+        width: '60%',
+        margin: `${theme.spacing.unit * 2}px auto`, //`${theme.spacing.unit * 2}px ${theme.spacing.unit * 4}px`,
         padding: theme.spacing.unit * 2,
 
     },
@@ -22,6 +23,12 @@ const styles = theme => ({
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
     },
+
+  bigAvatar: {
+      margin:10,
+    width: 200,
+    height: 200,
+  },
 });
 
 function About(props) {
@@ -30,12 +37,16 @@ function About(props) {
         <Paper className={classes.paper}>
             <Grid container wrap="nowrap" spacing={16}>
                 <Grid item>
-                    <Avatar>Me</Avatar>
+                <Avatar
+        alt="Alisa Tkaczyk"
+        src={projectHonours}
+        className={classes.bigAvatar}
+      />
                 </Grid>
                 <Grid item xs>
                     <div className={classes.heroContent}>
-                        <Typography component="h3" variant="h3" align="left" color="textPrimary" gutterBottom>
-                            About</Typography>
+                        {/* <Typography component="h3" variant="h3" align="left" color="textPrimary" gutterBottom>
+                            About</Typography> */}
                         <Typography variant="h6" align="left" color="textSecondary" paragraph>
                             Hi! I'm A-Lisa. </Typography>
                     </div>
