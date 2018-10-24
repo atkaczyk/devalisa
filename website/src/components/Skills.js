@@ -1,16 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import Image from '../img/landing-page.jpg'; // Import using relative path
 import SkillCard from './SkillCard';
 import Paper from '@material-ui/core/Paper';
 
@@ -41,6 +33,8 @@ const styles = theme => ({
     paper: {
         margin: `0 ${theme.spacing.unit * 4}px`,
         padding: theme.spacing.unit * 2,
+        boxShadow: 'none'
+
     },
 });
 
@@ -49,11 +43,11 @@ const cards = [{
     language: ['JavaScript', 'HTML5', 'CSS/Sass', 'React', 'Redux'],
     proficiency: ['75', '90', '90', '50', '25']
 }, {
-    title: "Backend",
+    title: "Back End",
     language: ['Java', 'C', 'Python', 'Scheme'],
     proficiency: ['75', '45', '50', '50']
 }, {
-    title: "Theory Based",
+    title: "Tools",
     language: ['Git', 'Agile', 'Eclipse', 'FP'],
     proficiency: ['75', '90', '75', '65']
 }, {
@@ -67,7 +61,9 @@ const cards = [{
 function Skills(props) {
     const { classes } = props;
     return (
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} >
+        <div id='skills' className="navBuffer"></div>
+
             <div className={classes.heroContent}>
                 <Typography component="h3" variant="h3" align="left" color="textPrimary" gutterBottom>
                     Skills</Typography>

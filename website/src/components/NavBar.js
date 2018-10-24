@@ -23,8 +23,8 @@ const styles = {
     },
     barColor: {
         background: '#d9a7c7',  /* fallback for old browsers */
-        background: '-webkit-linear-gradient(to right, #fffcdc, #d9a7c7)',  /* Chrome 10-25, Safari 5.1-6 */
-        background: 'linear-gradient(to right, #fffcdc, #d9a7c7)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: '-webkit-linear-gradient(to right, #fffcdc, #f8bbd0)',  /* Chrome 10-25, Safari 5.1-6 */
+        background: 'linear-gradient(to right, #fffcdc, #f8bbd0)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         color: 'grey',
     },
     navButton: {
@@ -32,8 +32,6 @@ const styles = {
         backgroundColor: 'white',
         borderRadius:'10px',
         fontStyle:'none',
-    },
-    navLink: {
         textDecoration: 'none',
         color:'grey',
     }
@@ -43,15 +41,18 @@ function NavBar(props) {
     const { classes } = props;
     return (
         <div className={classes.root}>
-            <AppBar className={classes.barColor} position="sticky">
+            <AppBar className={classes.barColor} 
+            position="sticky"
+            style={{position:'fixed',left:0,top:0}}
+            >
                 <Toolbar>
-                    <Typography variant="h6" color="inherit" className={classes.grow}>
-                    <Link className={classes.navLink} to="#">Patience, Practice, Perseverance</Link>
+                    <Typography href='#' variant="h6" color="inherit" className={classes.grow}>
+                    Patience, Practice, Perseverance
           </Typography>
-          <Button className={classes.navButton} color="inherit"><Link className={classes.navLink} to="#about">About</Link></Button>
-          <Button className={classes.navButton} color="inherit"><Link className={classes.navLink} to="#projects">Skills</Link></Button>
-          <Button className={classes.navButton} color="inherit"><Link className={classes.navLink} to="#projects">Projects</Link></Button>
-          <Button className={classes.navButton} color="inherit"><Link className={classes.navLink} to="#resume">Resume</Link></Button>
+          <Button className={classes.navButton} href='#about' color="inherit">About</Button>
+          <Button className={classes.navButton}  href='#skills'color="inherit">Skills</Button>
+          <Button className={classes.navButton} href='#projects' color="inherit">Projects</Button>
+          {/* <Button className={classes.navButton} color="inherit" href="#resume">Resume</Button> */}
 
                 </Toolbar>
             </AppBar>

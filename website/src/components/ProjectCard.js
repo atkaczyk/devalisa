@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -8,11 +7,23 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
-import Modal from '@material-ui/core/Modal';
-
+import Chip from '@material-ui/core/Chip';
 
 const styles = theme => ({
+    root: {
+        
+    },
+    colorPrimary: {
+        backgroundColor: '#ba2d65',
+        color: 'white',
+        margin: theme.spacing.unit /2,
+    },
     card: {
         height: '100%',
         display: 'flex',
@@ -37,16 +48,25 @@ const styles = theme => ({
         top: `30%`,
         left: `30%`,
         // transform: `translate(-${top}%, -${left}%)`
-    }
-    
+    },
+
+  chip: {
+    margin: theme.spacing.unit /2,
+  },
+  learnMoreButton: {
+    boxShadow: theme.shadows[5],
+backgroundColor: 'pink',
+margin: '0 5% 5% 5%',
+  }
+
 });
 
 class ProjectCard extends React.Component {
-    constructor(props, context){
+    constructor(props, context) {
         super(props, context);
         this.handleOpen = this.handleOpen.bind(this);
         this.handleClose = this.handleClose.bind(this);
-      }
+    }
 
     state = {
         open: false,
@@ -69,38 +89,45 @@ class ProjectCard extends React.Component {
                     <Typography gutterBottom variant="h5" component="h2">
                         {this.props.card.title}
                     </Typography>
+
                 </CardContent>
                 <CardMedia
+                    onClick={this.handleOpen}
                     className={classes.cardMedia}
                     image={this.props.card.image}
                     title={this.props.card.title}
                 />
-                <CardContent>
-                    <Typography>
-                        {this.props.card.description}
-                    </Typography>
+                <CardContent className={classes.root}>
+
+                            {this.props.card.tools.map(tool => (
+                                <Chip label={tool} className={classes.colorPrimary} color='primary' />
+                            ))}
                 </CardContent>
                 <CardActions>
-                    <Button size="small" color="primary">
-                        Tools
-                    </Button>
-                    <div>
-                        <Button onClick={this.handleOpen}>Open Modal</Button>
-                        <Modal
-                            aria-labelledby="simple-modal-title"
-                            aria-describedby="simple-modal-description"
-                            open={this.state.open}
-                            onClose={this.handleClose}
-                        >
-                            <div className={classNames(classes.paper, classes.modalPositon)}>
-                                <Typography variant="h6" id="modal-title">
-                                    Text in a modal</Typography>
-                                <Typography variant="subtitle1" id="simple-modal-description">
-                                    Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</Typography>
-                                
-                            </div>
-                        </Modal>
-                    </div>
+
+                    <Button className={classes.learnMoreButton} onClick={this.handleOpen}>Learn More</Button>
+                    <Dialog
+                        open={this.state.open}
+                        onClose={this.handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">{this.props.card.title}</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                    {this.props.card.description}
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            {this.props.card.link != '' &&
+                                <Button href={this.props.card.link} target='_blank' color="primary">
+                                    See online</Button>
+                            }}
+                            <Button onClick={this.handleClose} color="primary" autoFocus>
+                                Back</Button>
+                        </DialogActions>
+                    </Dialog>
+
                 </CardActions>
             </Card>
         );

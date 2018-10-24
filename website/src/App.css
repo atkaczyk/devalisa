@@ -28,11 +28,14 @@
   margin:0 15px;
 }
 .landing-page-icon-wrapper .fa:hover{
-  color: darkviolet;
+  color: #db7093;
   margin:5px 15px;
 }
 
 .landing-page-icon-wrapper{
   text-align: center;
-  padding-top:7%;
+  padding-top:2%;
+}
+.navBuffer {
+  height:5em;
 }

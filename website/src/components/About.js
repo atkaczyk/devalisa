@@ -13,35 +13,37 @@ import projectHonours from '../img/lab.jpg'; // Import using relative path
 
 
 const styles = theme => ({
+    root: {
+        boxShadow: 'none'
+    },
     paper: {
         width: '60%',
         margin: `${theme.spacing.unit * 2}px auto`, //`${theme.spacing.unit * 2}px ${theme.spacing.unit * 4}px`,
         padding: theme.spacing.unit * 2,
-
+        boxShadow: 'none'
     },
     heading: {
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
     },
-
-  bigAvatar: {
-      margin:10,
-    width: 200,
-    height: 200,
-  },
+    bigAvatar: {
+        margin: 10,
+        width: 200,
+        height: 200,
+    },
 });
 
 function About(props) {
     const { classes } = props;
     return (
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} id="about">
             <Grid container wrap="nowrap" spacing={16}>
                 <Grid item>
-                <Avatar
-        alt="Alisa Tkaczyk"
-        src={projectHonours}
-        className={classes.bigAvatar}
-      />
+                    <Avatar
+                        alt="Alisa Tkaczyk"
+                        src={projectHonours}
+                        className={classes.bigAvatar}
+                    />
                 </Grid>
                 <Grid item xs>
                     <div className={classes.heroContent}>
@@ -50,8 +52,8 @@ function About(props) {
                         <Typography variant="h6" align="left" color="textSecondary" paragraph>
                             Hi! I'm A-Lisa. </Typography>
                     </div>
-                    <div className={classes.root}>
-                        <ExpansionPanel>
+                    <div>
+                        <ExpansionPanel  className={classes.root}>
                             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                                 <Typography className={classes.heading}>My past</Typography>
                             </ExpansionPanelSummary>
@@ -60,7 +62,7 @@ function About(props) {
 
                             </ExpansionPanelDetails>
                         </ExpansionPanel>
-                        <ExpansionPanel>
+                        <ExpansionPanel  className={classes.root}>
                             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                                 <Typography className={classes.heading}>My present</Typography>
                             </ExpansionPanelSummary>
@@ -69,7 +71,7 @@ function About(props) {
 
                             </ExpansionPanelDetails>
                         </ExpansionPanel>
-                        <ExpansionPanel>
+                        <ExpansionPanel  className={classes.root}>
                             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                                 <Typography className={classes.heading}>My Future</Typography>
                             </ExpansionPanelSummary>

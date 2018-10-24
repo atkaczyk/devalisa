@@ -10,30 +10,64 @@ import LinearProgress from '@material-ui/core/LinearProgress'
 import Grid from '@material-ui/core/Grid';
 
 import Collapse from '@material-ui/core/Collapse';
+import red from '@material-ui/core/colors/red';
 
+import { createMuiTheme } from '@material-ui/core/styles';
 
-const styles = theme => ({
+const theme = createMuiTheme({
+  palette: {
+    primary: red,
+    secondary: {
+      main: '#f44336',
+    },
+  },
+  
+});
+
+const styles = theme => createMuiTheme({
   card: {
     minWidth: 275,
     height: '100%',
   },
   title: {
-    backgroundColor: 'pink',
+    background: '#d9a7c7',  /* fallback for old browsers */
+    background: '-webkit-linear-gradient(to right, #fffcdc, #f8bbd0)',  /* Chrome 10-25, Safari 5.1-6 */
+    background: 'linear-gradient(to right, #fffcdc, #f8bbd0)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
     borderRadius: '5px',
     marginRight:'10px',
     paddingLeft:'10px',
     lineHeight: '3rem',
     height:'3rem',
+    boxShadow: theme.shadows[5],
+
+    '&:hover': {
+      background: '#d9a7c7',  /* fallback for old browsers */
+      background: '-webkit-linear-gradient(to right, #f8bbd0, #ad818e)',  /* Chrome 10-25, Safari 5.1-6 */
+      background: 'linear-gradient(to right, #f8bbd0, #ad818e)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+  
+   }
   },
   pos: {
     marginBottom: 12,
   },
-  skillProgress: {
+  bar : {
+backgroundColor: 'deeppink',
+  },
+  barColorPrimary: {
     height: '10px',
     border: '2px solid black',
     borderRadius: '4px',
     marginTop: '10px',
-    marginBottom: '10px'
+    marginBottom: '10px',
+    color: 'deeppink'
+  },
+  bar1Determinate: {
+    height: '10px',
+    border: '2px solid black',
+    borderRadius: '4px',
+    marginTop: '10px',
+    marginBottom: '10px',
+    color: 'deeppink'
   },
   container: {
     display: 'flex',
@@ -65,13 +99,18 @@ class SkillCard extends React.Component {
           <Collapse in={checked} collapsedHeight="5rem">
             <Card className={classes.card}>
               <CardContent>
-                <Typography className={classes.title} onClick={this.handleChange} align='left' gutterBottom variant="h5" component="h2">
+                <Typography className={classes.title} onClick={this.handleChange} align='left' gutterBottom variant="h5" component="h2" direction='down'  mountOnEnter unmountOnExit>
                   {this.props.card.title}
                 </Typography>
                 {this.props.card.language.map((language, index) => (
                   <Grid container spacing={16} justify="center">
                     <Grid item sm={12} md={6} lg={6}>
-                      <LinearProgress className={classes.skillProgress} variant="determinate" value={this.props.card.proficiency[index]} />
+                      <LinearProgress
+                      
+                      classes={{
+                        barColorPrimary: classes.bar
+                      }} 
+                      className={classes.bar1Determinate} color='primary' variant="determinate" value={this.props.card.proficiency[index]} />
                     </Grid>
                     <Grid item sm={12} md={6} lg={6}>
                       <Typography variant="h6" align="left" color="textSecondary" paragraph>

@@ -10,17 +10,14 @@ const styles = {
     landingPageContainer: {
         backgroundImage: `url(${Image})`,
         height: '100%',
-        height: '700px',
+        height: '600px',
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'scroll',
         backgroundPosition: 'initial',
         backgroundSize: 'cover',
         alignText: 'center',
-        paddingTop:'3%'
+        paddingTop:'8%'
     },
-    introHeading: {
-
-    }
 };
 
 
@@ -29,7 +26,7 @@ function LandingPage (props) {
     const { classes } = props;
 
         return (
-            <div className="row" className={ classes.landingPageContainer  }>
+            <div className="row" id="" className={ classes.landingPageContainer  }>
                 <div className='intro-heading'>Alisa Tkaczyk</div>
                 <div className="intro-lead-in">Software Developer.</div>
                 <div className="row landing-page-icon-wrapper">
