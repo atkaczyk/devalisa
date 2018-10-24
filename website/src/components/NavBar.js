@@ -5,10 +5,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-// import IconButton from '@material-ui/core/IconButton';
-// import MenuIcon from '@material-ui/icons/Menu';
+import Pdf from '../resume-alisa-tkaczyk.pdf';
 
-import { Link } from 'react-router-dom';
 
 const styles = {
     root: {
@@ -23,8 +21,8 @@ const styles = {
     },
     barColor: {
         background: '#d9a7c7',  /* fallback for old browsers */
-        background: '-webkit-linear-gradient(to right, #fffcdc, #f8bbd0)',  /* Chrome 10-25, Safari 5.1-6 */
-        background: 'linear-gradient(to right, #fffcdc, #f8bbd0)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: '-webkit-linear-gradient(to right, #fff, #f8bbd0)',  /* Chrome 10-25, Safari 5.1-6 */
+        background: 'linear-gradient(to right, #fff, #f8bbd0)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         color: 'grey',
     },
     navButton: {
@@ -49,10 +47,11 @@ function NavBar(props) {
                     <Typography href='#' variant="h6" color="inherit" className={classes.grow}>
                     Patience, Practice, Perseverance
           </Typography>
-          <Button className={classes.navButton} href='#about' color="inherit">About</Button>
+          {/* <Button className={classes.navButton} href='#about' color="inherit">About</Button> */}
           <Button className={classes.navButton}  href='#skills'color="inherit">Skills</Button>
           <Button className={classes.navButton} href='#projects' color="inherit">Projects</Button>
-          {/* <Button className={classes.navButton} color="inherit" href="#resume">Resume</Button> */}
+
+          <Button className={classes.navButton} color="inherit" href = {Pdf} target="_blank">Resume</Button>
 
                 </Toolbar>
             </AppBar>

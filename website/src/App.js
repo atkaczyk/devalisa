@@ -20,13 +20,13 @@ class App extends Component {
 
         <LandingPage/>
 
-        <About />
+        {/* <About /> */}
 
         <Skills />
 
         <Projects />
 
-<Footer />
+        <Footer />
       </MuiThemeProvider>
     );
   }

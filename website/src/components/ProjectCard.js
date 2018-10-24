@@ -12,17 +12,15 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Carousel from './ImageCarousel';
 
 import Chip from '@material-ui/core/Chip';
 
 const styles = theme => ({
-    root: {
-        
-    },
     colorPrimary: {
         backgroundColor: '#ba2d65',
         color: 'white',
-        margin: theme.spacing.unit /2,
+        margin: theme.spacing.unit / 2,
     },
     card: {
         height: '100%',
@@ -37,27 +35,14 @@ const styles = theme => ({
     cardMedia: {
         paddingTop: '15rem',
     },
-    paper: {
-        position: 'absolute',
-        width: theme.spacing.unit * 50,
-        backgroundColor: theme.palette.background.paper,
+    chip: {
+        margin: theme.spacing.unit / 2,
+    },
+    learnMoreButton: {
         boxShadow: theme.shadows[5],
-        padding: theme.spacing.unit * 4,
-    },
-    modalPositon: {
-        top: `30%`,
-        left: `30%`,
-        // transform: `translate(-${top}%, -${left}%)`
-    },
-
-  chip: {
-    margin: theme.spacing.unit /2,
-  },
-  learnMoreButton: {
-    boxShadow: theme.shadows[5],
-backgroundColor: 'pink',
-margin: '0 5% 5% 5%',
-  }
+        backgroundColor: 'pink',
+        margin: '0 5% 5% 5%',
+    }
 
 });
 
@@ -79,7 +64,7 @@ class ProjectCard extends React.Component {
     handleClose = () => {
         this.setState({ open: false });
     };
-    // Consider adding badges to each project card to show tech/tools used
+
     render() {
         const { classes } = this.props;
 
@@ -99,12 +84,11 @@ class ProjectCard extends React.Component {
                 />
                 <CardContent className={classes.root}>
 
-                            {this.props.card.tools.map(tool => (
-                                <Chip label={tool} className={classes.colorPrimary} color='primary' />
-                            ))}
+                    {this.props.card.tools.map(tool => (
+                        <Chip label={tool} className={classes.colorPrimary} color='primary' />
+                    ))}
                 </CardContent>
                 <CardActions>
-
                     <Button className={classes.learnMoreButton} onClick={this.handleOpen}>Learn More</Button>
                     <Dialog
                         open={this.state.open}
@@ -115,8 +99,9 @@ class ProjectCard extends React.Component {
                         <DialogTitle id="alert-dialog-title">{this.props.card.title}</DialogTitle>
                         <DialogContent>
                             <DialogContentText id="alert-dialog-description">
-                                    {this.props.card.description}
+                                {this.props.card.description}
                             </DialogContentText>
+                            <Carousel images={this.props.card.images} />
                         </DialogContent>
                         <DialogActions>
                             {this.props.card.link != '' &&
@@ -127,7 +112,6 @@ class ProjectCard extends React.Component {
                                 Back</Button>
                         </DialogActions>
                     </Dialog>
-
                 </CardActions>
             </Card>
         );
@@ -138,7 +122,4 @@ ProjectCard.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-// We need an intermediary variable for handling the recursive nesting.
-const ProjectCardWrapped = withStyles(styles)(ProjectCard);
-
-export default withStyles(styles)(ProjectCardWrapped);
+export default withStyles(styles)(ProjectCard);
